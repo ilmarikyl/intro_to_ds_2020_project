@@ -1,26 +1,16 @@
 import React from "react";
-import Calendar from "./Calendar";
-import { Typography, Paper, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import PersonInfo from "./PersonInfo";
+import TweetInfo from "./TweetInfo";
 
-const Content = () => {
+const Content = ({ person }) => {
   return (
-    <Grid container spacing={1}>
+    <Grid container spacing={2}>
       <Grid item xs={12}>
-        <Paper>
-          <Typography variant="h3" component="h2" gutterBottom>
-            Donald Trump
-          </Typography>
-        </Paper>
+        <PersonInfo person={person} />
       </Grid>
       <Grid item xs={12}>
-        <Paper>
-          <Grid container>
-            <Grid item xs={6}>
-              <Calendar />
-            </Grid>
-            <Typography>Infoa</Typography>
-          </Grid>
-        </Paper>
+        <TweetInfo />
       </Grid>
     </Grid>
   );

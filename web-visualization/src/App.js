@@ -1,11 +1,20 @@
 import React from "react";
+import { Container, CssBaseline } from "@material-ui/core";
+import "react-calendar-heatmap/dist/styles.css";
+import "./App.css";
+import Navigation from "./components/Navigation";
+import Content from "./components/Content";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1>Fuck 2020</h1>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="md">
+        <Navigation />
+        <Content />
+      </Container>
+    </React.Fragment>
   );
-}
+};
 
 export default App;

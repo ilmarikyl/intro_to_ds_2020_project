@@ -8,7 +8,11 @@ const PersonInfo = ({ person }) => {
     <Paper style={{ backgroundColor: "#e63946", padding: "3em" }}>
       <Grid container>
         <Grid item xs={12}>
-          <Avatar alt={person.name} src={person.profile_image_url} />
+          <Avatar
+            alt={person.name}
+            src={person.profile_image_url.replace("_normal", "")}
+            style={{ height: "5em", width: "5em", marginBottom: "1em" }}
+          />
           <Typography variant="h5">{person.name}</Typography>
           <Typography variant="body2" gutterBottom>
             @{person.username}

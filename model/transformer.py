@@ -131,8 +131,11 @@ def analyze_raw_text_line(tweet_text, tokenizer, model, device):
 	input_ids = encoded_tweet['input_ids'].to(device)
 	attention_mask = encoded_tweet['attention_mask'].to(device)
 	output = model(input_ids, attention_mask)
+	
+	# print(output)
+	scores = (round(output[0][0].item(), 3), round(output[0][1].item(), 3), round(output[0][2].item(), 3))
 
-	return torch.max(output, dim=1)
+	return torch.max(output, dim=1), scores
 
 
 def main(args):
@@ -155,24 +158,41 @@ def main(args):
 			tweet_text = 'input'
 			while tweet_text:
 				tweet_text = input("Write/paste text here: ")
-				_, prediction = analyze_raw_text_line(tweet_text, tokenizer, model, device)
+				(x, prediction), scores = analyze_raw_text_line(tweet_text, tokenizer, model, device)
+
+				print(f'x: {x}, prediction: {prediction}, scores: {scores}')
+
 				print(f'Text: {tweet_text}\nSentiment: {CLASS_NAMES[prediction]}\n')
 
 		elif args.predict_from_csv:
-			df = data = pd.read_csv(args.predict_from_csv, sep='\t', encoding='utf-8')
+			# df = data = pd.read_csv(args.predict_from_csv, sep='\t', encoding='utf-8')
+			df = data = pd.read_csv(args.predict_from_csv, sep=',', encoding='utf-8')
 			output_filename = args.predict_from_csv.split('.')[0] + '_predictions.csv'
-			sentiments =[]
+			top_sentiments =[]
+			positives, negatives, neutrals = [], [], []
 			
 			print('Analyzing tweets...\n')
 			for tweet_text in df['text']:
 				if type(tweet_text) == str: # If tweet has no content, pandas tries to read next value on the row which is a float
-					_, prediction = analyze_raw_text_line(str(tweet_text), tokenizer, model, device)
-					sentiments.append(CLASS_NAMES[prediction])
+					(x, prediction), scores = analyze_raw_text_line(str(tweet_text), tokenizer, model, device)
+					positives.append(scores[0])
+					negatives.append(scores[1])
+					neutrals.append(scores[2])
+					top_sentiments.append(CLASS_NAMES[prediction])
 				else:
-					sentiments.append('neutral') # No content = neutral
+					top_sentiments.append('NO TEXT') # Tweet has no content
+					positives.append('0') # No content = 0
+					negatives.append('0')
+					neutrals.append('0')
 
-			df.insert(6, 'sentiment', sentiments, True)
-			df.to_csv(output_filename, sep='\t')
+			df.insert(6, 'predicted_sent', top_sentiments, True)
+			df.insert(6, 'neut_score', neutrals, True)
+			df.insert(6, 'neg_score', negatives, True)
+			df.insert(6, 'pos_score', positives, True)
+
+			df.drop(['geo', 'favorites'], axis=1, inplace=True)
+
+			df.to_csv(output_filename, sep='\t', index=False)
 			print(f'Done. Output file \'{output_filename}\' created.')
 
 		exit(0)

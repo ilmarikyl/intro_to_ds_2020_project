@@ -8,7 +8,7 @@ export const getUserInfo = async () => {
   };
 
   const response = await axios.get(
-    `https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/users/by?usernames=realdonaldtrump&user.fields=description,profile_image_url`,
+    `https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/users/by?usernames=realdonaldtrump,joebiden&user.fields=description,profile_image_url`,
     config
   );
   return response.data;

@@ -165,15 +165,15 @@ def main(args):
 				print(f'Text: {tweet_text}\nSentiment: {CLASS_NAMES[prediction]}\n')
 
 		elif args.predict_from_csv:
-			# df = data = pd.read_csv(args.predict_from_csv, sep='\t', encoding='utf-8')
-			df = data = pd.read_csv(args.predict_from_csv, sep=',', encoding='utf-8')
+			df = data = pd.read_csv(args.predict_from_csv, sep='\t', encoding='utf-8')
+			# df = data = pd.read_csv(args.predict_from_csv, sep=',', encoding='utf-8') # for different delimiter
 			output_filename = args.predict_from_csv.split('.')[0] + '_predictions.csv'
 			top_sentiments =[]
 			positives, negatives, neutrals = [], [], []
 			
 			print('Analyzing tweets...\n')
 			for tweet_text in df['text']:
-				if type(tweet_text) == str: # If tweet has no content, pandas tries to read next value on the row which is a float
+				if type(tweet_text) == str and len(tweet_text) > 1: # If tweet has no content, pandas tries to read next value on the row which is a float
 					(x, prediction), scores = analyze_raw_text_line(str(tweet_text), tokenizer, model, device)
 					positives.append(scores[0])
 					negatives.append(scores[1])
@@ -185,12 +185,13 @@ def main(args):
 					negatives.append('0')
 					neutrals.append('0')
 
-			df.insert(6, 'predicted_sent', top_sentiments, True)
-			df.insert(6, 'neut_score', neutrals, True)
-			df.insert(6, 'neg_score', negatives, True)
-			df.insert(6, 'pos_score', positives, True)
+			df.insert(3, 'predicted_sent', top_sentiments, True)
+			df.insert(3, 'neut_score', neutrals, True)
+			df.insert(3, 'neg_score', negatives, True)
+			df.insert(3, 'pos_score', positives, True)
 
-			df.drop(['geo', 'favorites'], axis=1, inplace=True)
+			# Delete rows of which tweets don't have any text
+			df = df.drop(df[df.predicted_sent == 'NO TEXT'].index)
 
 			df.to_csv(output_filename, sep='\t', index=False)
 			print(f'Done. Output file \'{output_filename}\' created.')

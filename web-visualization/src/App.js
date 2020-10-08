@@ -16,25 +16,27 @@ const App = () => {
     return date.split(" ")[0];
   };
 
-  //working but not a great solution for selecting calendar colours
   const selectColor = (tweet, allTweets) => {
     const sameDate = allTweets.filter((t) => t.date === tweet.date);
 
-    let neut = 0;
-    let neg = 0;
-    let pos = 0;
+    let neutScore = 0;
+    let negScore = 0;
+    let posScore = 0;
     for (let i = 0; i < sameDate.length; i++) {
-      if (sameDate[i].sentiment === "negative") {
-        neg += 1;
-      } else if (sameDate[i].sentiment === "postive") {
-        pos += 1;
-      } else if (sameDate[i].sentiment === "neutral") {
-        neut += 1;
-      }
+      neutScore += sameDate[i].neut_score;
+      negScore += sameDate[i].neg_score;
+      posScore += sameDate[i].pos_score;
     }
 
-    const maxCount = Math.max(neut, neg, pos);
-    return neut === maxCount ? 1 : neg === maxCount ? 2 : 0;
+    const maxScore = Math.max(neutScore, negScore, posScore);
+
+    if (maxScore === posScore) {
+      return "0";
+    } else if (maxScore === neutScore) {
+      return "1";
+    } else if (maxScore === negScore) {
+      return "2";
+    }
   };
 
   useEffect(() => {

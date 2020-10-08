@@ -8,10 +8,10 @@ const Calendar = ({ selectDate, tweets }) => {
   };
 
   return !tweets ? null : (
-    <>
+    <div className="calendar-container">
       <CalendarHeatmap
-        startDate={new Date("2020-3-31")}
-        endDate={new Date("2020-10-01")}
+        startDate={new Date("2020-1-1")}
+        endDate={new Date("2020-10-1")}
         values={tweets}
         classForValue={(value) => {
           if (!value) {
@@ -23,9 +23,10 @@ const Calendar = ({ selectDate, tweets }) => {
         gutterSize={2}
         onClick={selectDate}
         tooltipDataAttrs={getTooltip}
+        horizontal={false}
       />
       <ReactTooltip />
-    </>
+    </div>
   );
 };
 

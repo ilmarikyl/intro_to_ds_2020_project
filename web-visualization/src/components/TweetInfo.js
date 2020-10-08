@@ -21,18 +21,18 @@ const TweetInfo = ({ tweets }) => {
   return (
     <Paper style={{ backgroundColor: "#eddcd2", padding: "3em" }}>
       <Grid container spacing={2} style={{ paddingTop: "3em" }}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={5}>
           <Typography variant="h5" gutterBottom>
             Tweet timeline
           </Typography>
           <Calendar selectDate={selectDate} tweets={tweets} />
         </Grid>
         <Grid item md={1}></Grid>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={6}>
           {!selectedTweets ? (
             <div>
               <Typography variant="h5" gutterBottom>
-                Latest tweets
+                Most recent tweets
               </Typography>
               <Timeline
                 dataSource={{
@@ -40,7 +40,7 @@ const TweetInfo = ({ tweets }) => {
                   screenName: "realdonaldtrump",
                 }}
                 options={{
-                  height: "600",
+                  height: "35em",
                 }}
               />
             </div>

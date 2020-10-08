@@ -14,8 +14,13 @@
 }
 
 #scrollable {
-  height: 400px;
+  height: 30em;
   overflow: auto;
   background-color: white;
   border-radius: 10px;
+}
+
+.calendar-container {
+  height: 30em;
+  overflow: auto;
 }

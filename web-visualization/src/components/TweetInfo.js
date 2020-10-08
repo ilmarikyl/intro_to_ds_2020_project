@@ -4,10 +4,13 @@ import { Paper, Grid, Typography } from "@material-ui/core";
 import { Timeline } from "react-twitter-widgets";
 import Tweets from "./Tweets";
 
-const TweetInfo = ({ tweets }) => {
+const TweetInfo = ({ tweets, person }) => {
   const [selectedTweets, setSelectedTweets] = useState(null);
 
   const selectDate = (value) => {
+    if (!value) {
+      return;
+    }
     const sameDateTweets = tweets.filter((t) => t.date === value.date);
     const sameDayFormatted = sameDateTweets.map((tweet) => {
       return {
@@ -18,6 +21,9 @@ const TweetInfo = ({ tweets }) => {
     console.log("same day", sameDayFormatted);
     setSelectedTweets(sameDayFormatted);
   };
+  if (!person) {
+    return null;
+  }
   return (
     <Paper style={{ backgroundColor: "#eddcd2", padding: "3em" }}>
       <Grid container spacing={2} style={{ paddingTop: "3em" }}>
@@ -37,7 +43,7 @@ const TweetInfo = ({ tweets }) => {
               <Timeline
                 dataSource={{
                   sourceType: "profile",
-                  screenName: "realdonaldtrump",
+                  screenName: person.username,
                 }}
                 options={{
                   height: "35em",

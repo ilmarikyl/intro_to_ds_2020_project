@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getUserInfo = async () => {
-  console.log(process.env.REACT_APP_TOKEN);
+  console.log("token", !!process.env.REACT_APP_TOKEN);
   const config = {
     headers: {
       Authorization: `bearer ${process.env.REACT_APP_TOKEN}`,

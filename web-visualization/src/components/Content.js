@@ -10,7 +10,7 @@ const Content = ({ person, tweets, togglePerson }) => {
         <PersonInfo person={person} togglePerson={togglePerson} />
       </Grid>
       <Grid item xs={12}>
-        <TweetInfo tweets={tweets} />
+        <TweetInfo person={person} tweets={tweets} />
       </Grid>
     </Grid>
   );

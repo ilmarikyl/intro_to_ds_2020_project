@@ -46,7 +46,7 @@ for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=99999, tweet
 
 	for nickname in biden_nicknames:
 		if nickname in tweet_text.lower():
-			opponent_mentioned = False
+			opponent_mentioned = True
 
 	if opponent_mentioned:
 		opponent_was_mentioned.append(True)

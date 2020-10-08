@@ -9,8 +9,10 @@ const chooseColor = (sentiment) => {
       return "#7bb662";
     case "neutral":
       return "#f5d22c";
-    default:
+    case "negative":
       return "#e03c32";
+    default:
+      return "#A9A9A9";
   }
 };
 
@@ -20,8 +22,10 @@ const chooseBackground = (sentiment) => {
       return "#b7dba7";
     case "neutral":
       return "#ffe775";
-    default:
+    case "negative":
       return "#e6625a";
+    default:
+      return "#C0C0C0";
   }
 };
 
@@ -29,7 +33,6 @@ const SentimentBar = styled(({ sentiment, ...other }) => <AppBar {...other} />)(
   {
     backgroundColor: (props) => chooseColor(props.sentiment),
     alignItems: "center",
-    borderRadius: "10px",
     color: "black",
   }
 );
@@ -39,7 +42,9 @@ const TweetContainer = styled(({ sentiment, ...other }) => (
 ))({
   margin: "0.5em 0 3em 0",
   padding: "1em 0 1em 0",
+  borderRadius: "0px",
   borderBottom: "1px solid gray",
+  borderTop: "1px solid gray",
   backgroundColor: (props) => chooseBackground(props.sentiment),
 });
 
@@ -53,13 +58,13 @@ const Tweets = ({ tweets }) => {
         <div id="scrollable">
           {tweets.map((tweet) => (
             <TweetContainer
-              sentiment={tweet.sentiment}
+              sentiment={tweet.predicted_sent}
               key={tweet.id}
               elevation={0}
             >
-              <SentimentBar sentiment={tweet.sentiment} position="static">
+              <SentimentBar sentiment={tweet.predicted_sent} position="static">
                 <Toolbar>
-                  <Typography>{tweet.sentiment}</Typography>
+                  <Typography>{tweet.predicted_sent}</Typography>
                 </Toolbar>
               </SentimentBar>
               <Tweet tweetId={tweet.id} />

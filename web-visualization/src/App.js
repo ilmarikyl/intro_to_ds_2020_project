@@ -5,15 +5,15 @@ import "./App.css";
 import Navigation from "./components/Navigation";
 import Content from "./components/Content";
 import { getUserInfo } from "./requests";
-import data from "./data/tweets.json";
+import trumpData from "./data/trump_tweets.json";
+// import bidenData from "./data/biden_tweets.json";
 
 const App = () => {
   const [person, setPerson] = useState(null);
   const [tweets, setTweets] = useState(null);
 
   const formatDate = (date) => {
-    const dateParts = date.split(" ")[0].split(".");
-    return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+    return date.split(" ")[0];
   };
 
   //working but not a great solution for selecting calendar colours
@@ -60,7 +60,7 @@ const App = () => {
     };
 
     getPersonInfo();
-    setTweets(formatTweets(data));
+    setTweets(formatTweets(trumpData));
   }, []);
 
   return (

@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import Calendar from "./Calendar";
 import { Paper, Grid, Typography } from "@material-ui/core";
-import { Timeline, Tweet } from "react-twitter-widgets";
+import { Timeline } from "react-twitter-widgets";
+import Tweets from "./Tweets";
 
 const TweetInfo = ({ tweets }) => {
   const [selectedTweets, setSelectedTweets] = useState(null);
 
   const selectDate = (value) => {
     const sameDateTweets = tweets.filter((t) => t.date === value.date);
-    console.log("tviitit päivältä", sameDateTweets);
-    const tweetIds = sameDateTweets.map((tweet) =>
-      tweet.permalink.substring(tweet.permalink.lastIndexOf("/") + 1)
-    );
-    setSelectedTweets(tweetIds);
+    const sameDayFormatted = sameDateTweets.map((tweet) => {
+      return {
+        ...tweet,
+        id: tweet.permalink.substring(tweet.permalink.lastIndexOf("/") + 1),
+      };
+    });
+    console.log("same day", sameDayFormatted);
+    setSelectedTweets(sameDayFormatted);
   };
   return (
     <Paper style={{ backgroundColor: "#eddcd2", padding: "3em" }}>
@@ -36,24 +40,13 @@ const TweetInfo = ({ tweets }) => {
                   screenName: "realdonaldtrump",
                 }}
                 options={{
-                  height: "400",
+                  height: "600",
                 }}
               />
             </div>
           ) : (
             <div>
-              <Typography variant="h5" gutterBottom>
-                Tweets from selected date
-              </Typography>
-              <div id="scrollable">
-                {selectedTweets.map((tweet) => (
-                  <Tweet
-                    key={tweet}
-                    tweetId={tweet}
-                    options={{ height: "200px" }}
-                  />
-                ))}
-              </div>
+              <Tweets tweets={selectedTweets} />
             </div>
           )}
         </Grid>

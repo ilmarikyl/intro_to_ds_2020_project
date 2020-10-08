@@ -1,21 +1,20 @@
 /*positive*/
 .react-calendar-heatmap .color-scale-0 {
-  fill: #7BB662;
+  fill: #7bb662;
 }
 
 /*neutral*/
 .react-calendar-heatmap .color-scale-1 {
-  fill: #FFD301;
+  fill: #f5d22c;
 }
 
 /*negative*/
 .react-calendar-heatmap .color-scale-2 {
-  fill: #E03C32;
+  fill: #e03c32;
 }
 
 #scrollable {
   height: 400px;
-  padding: 1em;
   overflow: auto;
   background-color: white;
   border-radius: 10px;

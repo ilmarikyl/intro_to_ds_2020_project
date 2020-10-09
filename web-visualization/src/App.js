@@ -16,10 +16,6 @@ const App = () => {
   const [bidenTweets, setBidenTweets] = useState(null);
   const [tweets, setTweets] = useState(null);
 
-  const formatDate = (date) => {
-    return date.split(" ")[0];
-  };
-
   const selectColor = (tweet, allTweets) => {
     const sameDate = allTweets.filter((t) => t.date === tweet.date);
 
@@ -52,19 +48,13 @@ const App = () => {
     };
 
     const formatTweets = (data) => {
-      const dateFormattedTweets = data.map((tweet) => {
+      const formattedTweets = data.map((tweet) => {
         return {
           ...tweet,
-          date: formatDate(tweet.date),
+          color: selectColor(tweet, data),
         };
       });
-      const newTweets = dateFormattedTweets.map((tweet) => {
-        return {
-          ...tweet,
-          color: selectColor(tweet, dateFormattedTweets),
-        };
-      });
-      return newTweets;
+      return formattedTweets;
     };
 
     getPersonInfo();

@@ -12,14 +12,7 @@ const TweetInfo = ({ tweets, person }) => {
       return;
     }
     const sameDateTweets = tweets.filter((t) => t.date === value.date);
-    const sameDayFormatted = sameDateTweets.map((tweet) => {
-      return {
-        ...tweet,
-        id: tweet.permalink.substring(tweet.permalink.lastIndexOf("/") + 1),
-      };
-    });
-    console.log("same day", sameDayFormatted);
-    setSelectedTweets(sameDayFormatted);
+    setSelectedTweets(sameDateTweets);
   };
   if (!person) {
     return null;

@@ -10,8 +10,8 @@ const Calendar = ({ selectDate, tweets }) => {
   return !tweets ? null : (
     <div className="calendar-container">
       <CalendarHeatmap
-        startDate={new Date("2020-1-1")}
-        endDate={new Date("2020-10-1")}
+        startDate={new Date("2019-12-25")}
+        endDate={new Date("2020-10-14")}
         values={tweets}
         classForValue={(value) => {
           if (!value) {

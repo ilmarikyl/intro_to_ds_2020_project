@@ -13,6 +13,10 @@
   fill: #e03c32;
 }
 
+.react-calendar-heatmap .color-empty {
+  fill: #c0c0c0;
+}
+
 #scrollable {
   height: 35em;
   overflow: auto;

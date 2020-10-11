@@ -13,7 +13,7 @@ const Navigation = () => {
     >
       <Toolbar variant="dense">
         <Typography variant="h5" component="h1">
-          Fuck 2020
+          Tweet Analysis
         </Typography>
       </Toolbar>
     </AppBar>

@@ -18,7 +18,7 @@
 }
 
 .scrollable-container {
-  padding: "2em 0 2em 0";
+  padding-bottom: 3em;
   background-color: white;
 }
 
@@ -26,6 +26,17 @@
   height: 35em;
   overflow: auto;
   background-color: white;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+}
+
+.tweet:first-child {
+  border-top: none;
+}
+
+.tweet:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 .calendar-container {

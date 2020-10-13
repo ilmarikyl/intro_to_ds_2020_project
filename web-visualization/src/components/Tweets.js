@@ -68,6 +68,7 @@ const Tweets = ({ tweets, selectDate }) => {
         <div id="scrollable">
           {tweets.map((tweet) => (
             <TweetContainer
+              className="tweet"
               sentiment={tweet.predicted_sent}
               key={tweet.id}
               elevation={0}

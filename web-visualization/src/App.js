@@ -15,6 +15,7 @@ const App = () => {
   const [trumpTweets, setTrumpTweets] = useState(null);
   const [bidenTweets, setBidenTweets] = useState(null);
   const [tweets, setTweets] = useState(null);
+  const [selectedTweets, setSelectedTweets] = useState(null);
 
   const selectColor = (tweet, allTweets) => {
     const sameDate = allTweets.filter((t) => t.date === tweet.date);
@@ -67,10 +68,32 @@ const App = () => {
     if (person.username === "realDonaldTrump") {
       setPerson(bidenInfo);
       setTweets(bidenTweets);
+      if (selectedTweets) {
+        setSelectedTweets(
+          bidenTweets.filter((t) => t.date === selectedTweets[0].date)
+        );
+      }
     } else if (person.username === "JoeBiden") {
       setPerson(trumpInfo);
       setTweets(trumpTweets);
+      if (selectedTweets) {
+        setSelectedTweets(
+          trumpTweets.filter((t) => t.date === selectedTweets[0].date)
+        );
+      }
     }
+  };
+
+  const selectDate = (value) => {
+    if (!value) {
+      return;
+    }
+    if (value === "back") {
+      setSelectedTweets(null);
+      return;
+    }
+    const sameDateTweets = tweets.filter((t) => t.date === value.date);
+    setSelectedTweets(sameDateTweets);
   };
 
   return (
@@ -78,7 +101,13 @@ const App = () => {
       <CssBaseline />
       <Container maxWidth="lg">
         <Navigation />
-        <Content person={person} tweets={tweets} togglePerson={togglePerson} />
+        <Content
+          person={person}
+          tweets={tweets}
+          togglePerson={togglePerson}
+          selectDate={selectDate}
+          selectedTweets={selectedTweets}
+        />
       </Container>
     </React.Fragment>
   );

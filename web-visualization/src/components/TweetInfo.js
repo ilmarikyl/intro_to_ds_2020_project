@@ -1,28 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Calendar from "./Calendar";
 import { Paper, Grid, Typography } from "@material-ui/core";
 import { Timeline } from "react-twitter-widgets";
 import Tweets from "./Tweets";
 
-const TweetInfo = ({ tweets, person }) => {
-  const [selectedTweets, setSelectedTweets] = useState(null);
-
-  const selectDate = (value) => {
-    console.log(value);
-    if (!value) {
-      return;
-    }
-    if (value === "back") {
-      setSelectedTweets(null);
-      return;
-    }
-    const sameDateTweets = tweets.filter((t) => t.date === value.date);
-    console.log(sameDateTweets);
-    setSelectedTweets(sameDateTweets);
-  };
+const TweetInfo = ({ tweets, person, selectDate, selectedTweets }) => {
   if (!person) {
     return null;
   }
+
   return (
     <Paper style={{ backgroundColor: "#eddcd2", padding: "3em" }}>
       <Grid container spacing={2} style={{ paddingTop: "3em" }}>

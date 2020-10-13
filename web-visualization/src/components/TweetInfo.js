@@ -8,10 +8,16 @@ const TweetInfo = ({ tweets, person }) => {
   const [selectedTweets, setSelectedTweets] = useState(null);
 
   const selectDate = (value) => {
+    console.log(value);
     if (!value) {
       return;
     }
+    if (value === "back") {
+      setSelectedTweets(null);
+      return;
+    }
     const sameDateTweets = tweets.filter((t) => t.date === value.date);
+    console.log(sameDateTweets);
     setSelectedTweets(sameDateTweets);
   };
   if (!person) {
@@ -45,7 +51,7 @@ const TweetInfo = ({ tweets, person }) => {
             </div>
           ) : (
             <div>
-              <Tweets tweets={selectedTweets} />
+              <Tweets tweets={selectedTweets} selectDate={selectDate} />
             </div>
           )}
         </Grid>

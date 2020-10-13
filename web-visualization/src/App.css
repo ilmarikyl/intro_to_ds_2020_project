@@ -17,6 +17,11 @@
   fill: #c0c0c0;
 }
 
+.scrollable-container {
+  padding: "2em 0 2em 0";
+  background-color: white;
+}
+
 #scrollable {
   height: 35em;
   overflow: auto;

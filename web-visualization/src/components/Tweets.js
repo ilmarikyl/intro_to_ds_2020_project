@@ -1,6 +1,13 @@
 import React from "react";
 import { styled } from "@material-ui/core/styles";
-import { Paper, Typography, AppBar, Toolbar } from "@material-ui/core";
+import {
+  Paper,
+  Typography,
+  AppBar,
+  Toolbar,
+  IconButton,
+} from "@material-ui/core";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Tweet } from "react-twitter-widgets";
 
 const chooseColor = (sentiment) => {
@@ -40,7 +47,7 @@ const SentimentBar = styled(({ sentiment, ...other }) => <AppBar {...other} />)(
 const TweetContainer = styled(({ sentiment, ...other }) => (
   <Paper {...other} />
 ))({
-  margin: "0.5em 0 3em 0",
+  margin: "0em 0 3em 0",
   padding: "1em 0 1em 0",
   borderRadius: "0px",
   borderBottom: "1px solid gray",
@@ -48,13 +55,16 @@ const TweetContainer = styled(({ sentiment, ...other }) => (
   backgroundColor: (props) => chooseBackground(props.sentiment),
 });
 
-const Tweets = ({ tweets }) => {
+const Tweets = ({ tweets, selectDate }) => {
   return (
     <>
       <Typography variant="h5" gutterBottom>
         Tweets from {tweets[0].date}
       </Typography>
-      <Paper elevation={0} style={{ padding: "2em 0 2em 0" }}>
+      <div className="scrollable-container">
+        <IconButton aria-label="back" onClick={() => selectDate("back")}>
+          <ArrowBackIcon />
+        </IconButton>
         <div id="scrollable">
           {tweets.map((tweet) => (
             <TweetContainer
@@ -71,7 +81,7 @@ const Tweets = ({ tweets }) => {
             </TweetContainer>
           ))}
         </div>
-      </Paper>
+      </div>
     </>
   );
 };

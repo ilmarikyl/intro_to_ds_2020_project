@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, CssBaseline } from "@material-ui/core";
+import { Container, CssBaseline, CircularProgress } from "@material-ui/core";
 import "react-calendar-heatmap/dist/styles.css";
 import "./App.css";
 import Navigation from "./components/Navigation";
@@ -101,13 +101,19 @@ const App = () => {
       <CssBaseline />
       <Container maxWidth="lg">
         <Navigation />
-        <Content
-          person={person}
-          tweets={tweets}
-          togglePerson={togglePerson}
-          selectDate={selectDate}
-          selectedTweets={selectedTweets}
-        />
+        {!person ? (
+          <div className="spinner">
+            <CircularProgress />
+          </div>
+        ) : (
+          <Content
+            person={person}
+            tweets={tweets}
+            togglePerson={togglePerson}
+            selectDate={selectDate}
+            selectedTweets={selectedTweets}
+          />
+        )}
       </Container>
     </React.Fragment>
   );

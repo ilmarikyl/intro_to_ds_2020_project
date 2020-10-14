@@ -43,3 +43,13 @@
   height: 35em;
   overflow: auto;
 }
+
+.footer {
+  margin-top: 2em;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

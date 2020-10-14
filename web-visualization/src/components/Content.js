@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import PersonInfo from "./PersonInfo";
 import TweetInfo from "./TweetInfo";
+import Footer from "./Footer";
 
 const Content = ({
   person,
@@ -22,6 +23,9 @@ const Content = ({
           selectDate={selectDate}
           selectedTweets={selectedTweets}
         />
+      </Grid>
+      <Grid item xs={12}>
+        <Footer />
       </Grid>
     </Grid>
   );

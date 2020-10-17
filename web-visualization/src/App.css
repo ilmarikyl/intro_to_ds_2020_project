@@ -40,7 +40,7 @@
 }
 
 .calendar-container {
-  height: 35em;
+  height: 40em;
   overflow: auto;
 }
 
@@ -52,4 +52,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.event-item {
+  padding: 1.5em;
 }

@@ -20,6 +20,7 @@ const Calendar = ({ selectDate, tweets }) => {
           return `color-scale-${value.color}`;
         }}
         showWeekdayLabels={true}
+        showMonthLabels={true}
         gutterSize={2}
         onClick={selectDate}
         tooltipDataAttrs={getTooltip}

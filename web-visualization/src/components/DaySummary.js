@@ -58,7 +58,7 @@ const DaySummary = ({ tweets, chooseColor, selectDate }) => {
     textAlign: "center",
     position: "relative",
     padding: "1em 0 1em 0",
-    borderRadius: "0.5em 0.5em 0 0"
+    borderRadius: "0.5em 0.5em 0 0",
   });
 
   const information = createSummary();
@@ -79,7 +79,7 @@ const DaySummary = ({ tweets, chooseColor, selectDate }) => {
         {information.neg} negative
       </Typography>
       <Typography variant="subtitle1" style={{ fontWeight: "300" }}>
-        Opposition mentioned {information.mentions} times
+        Opponent mentioned {information.mentions} times
       </Typography>
     </OverallSentiment>
   );

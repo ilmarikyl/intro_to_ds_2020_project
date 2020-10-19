@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@material-ui/core/styles";
-import { Paper, Typography, AppBar, Toolbar } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 import { Tweet } from "react-twitter-widgets";
 import DaySummary from "./DaySummary";
 
@@ -30,13 +30,13 @@ const chooseBackground = (sentiment) => {
   }
 };
 
-const SentimentBar = styled(({ sentiment, ...other }) => <AppBar {...other} />)(
-  {
-    backgroundColor: (props) => chooseColor(props.sentiment),
-    alignItems: "center",
-    color: "black",
-  }
-);
+const SentimentBar = styled(({ sentiment, ...other }) => <div {...other} />)({
+  backgroundColor: (props) => chooseColor(props.sentiment),
+  textAlign: "center",
+  padding: "1em 0 1em 0",
+  boxShadow:
+    "0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
+});
 
 const TweetContainer = styled(({ sentiment, ...other }) => (
   <Paper {...other} />
@@ -70,9 +70,14 @@ const Tweets = ({ tweets, selectDate }) => {
               elevation={0}
             >
               <SentimentBar sentiment={tweet.predicted_sent} position="static">
-                <Toolbar>
-                  <Typography>{tweet.predicted_sent}</Typography>
-                </Toolbar>
+                <Typography variant="subtitle1" style={{ fontWeight: "400" }}>
+                  {tweet.predicted_sent.toUpperCase()}
+                </Typography>
+                {tweet.opponent_mentioned && (
+                  <Typography variant="subtitle2" style={{ fontWeight: "400" }}>
+                    Opponent mentioned
+                  </Typography>
+                )}
               </SentimentBar>
               <Tweet tweetId={tweet.id} />
             </TweetContainer>

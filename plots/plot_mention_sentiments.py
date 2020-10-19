@@ -20,7 +20,7 @@ df_biden_opp_mentioned = df_biden.drop(df_biden[df_biden.opponent_mentioned == F
 
 # Trump
 class_names = ['negative', 'neutral', 'positive']
-ax = sns.countplot(df_trump_opp_mentioned.predicted_sent, order=['positive', 'negative', 'neutral'], palette=['#7BB662', '#E03C32', '#F5D22C'])
+ax = sns.countplot(df_trump_opp_mentioned.predicted_sent, order=['positive', 'negative', 'neutral'], palette=['#7BB662', '#E03C32', '#F5D22C'], saturation=1)
 plt.xlabel('')
 plt.title('Sentiment distribution for tweets where Biden is mentioned')
 for p in ax.patches:
@@ -31,7 +31,7 @@ plt.clf()
 # Biden
 plt.figure(figsize=[10,7])
 class_names = ['negative', 'neutral', 'positive']
-ax = sns.countplot(df_biden_opp_mentioned.predicted_sent, order=['positive', 'negative', 'neutral'], palette=['#7BB662', '#E03C32', '#F5D22C'])
+ax = sns.countplot(df_biden_opp_mentioned.predicted_sent, order=['positive', 'negative', 'neutral'], palette=['#7BB662', '#E03C32', '#F5D22C'], saturation=1)
 plt.title('Sentiment distribution for tweets where Trump is mentioned')
 for p in ax.patches:
     ax.annotate('{:d}'.format(p.get_height()), (p.get_x()+0.35, p.get_height()))

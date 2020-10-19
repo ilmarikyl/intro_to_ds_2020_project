@@ -11,7 +11,7 @@ const Footer = () => {
         color="textSecondary"
         gutterBottom
       >
-        Project source
+        Source code
       </Typography>
       <div style={{ textAlign: "center" }}>
         <IconButton href="https://github.com/ilmarikyl/intro_to_ds_2020_project">

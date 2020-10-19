@@ -1,14 +1,8 @@
 import React from "react";
 import { styled } from "@material-ui/core/styles";
-import {
-  Paper,
-  Typography,
-  AppBar,
-  Toolbar,
-  IconButton,
-} from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Paper, Typography, AppBar, Toolbar } from "@material-ui/core";
 import { Tweet } from "react-twitter-widgets";
+import DaySummary from "./DaySummary";
 
 const chooseColor = (sentiment) => {
   switch (sentiment) {
@@ -59,12 +53,14 @@ const Tweets = ({ tweets, selectDate }) => {
   return (
     <>
       <Typography variant="h5" gutterBottom>
-        Tweets from {tweets[0].date}
+        {tweets[0].date}
       </Typography>
+      <DaySummary
+        tweets={tweets}
+        chooseColor={chooseColor}
+        selectDate={selectDate}
+      />
       <div className="scrollable-container">
-        <IconButton aria-label="back" onClick={() => selectDate("back")}>
-          <ArrowBackIcon />
-        </IconButton>
         <div id="scrollable">
           {tweets.map((tweet) => (
             <TweetContainer

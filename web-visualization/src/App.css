@@ -18,12 +18,13 @@
 }
 
 .scrollable-container {
-  padding-bottom: 3em;
+  padding: 0 0 2em 0;
   background-color: white;
+  border-radius: 0 0 0.5em 0.5em;
 }
 
 #scrollable {
-  height: 35em;
+  max-height: 35em;
   overflow: auto;
   background-color: white;
   border-bottom: 1px solid gray;

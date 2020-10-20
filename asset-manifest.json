@@ -1,31 +1,31 @@
 {
   "files": {
     "main.css": "/intro_to_ds_2020_project/static/css/main.1ff97ba3.chunk.css",
-    "main.js": "/intro_to_ds_2020_project/static/js/main.feff339f.chunk.js",
-    "main.js.map": "/intro_to_ds_2020_project/static/js/main.feff339f.chunk.js.map",
+    "main.js": "/intro_to_ds_2020_project/static/js/main.035e554b.chunk.js",
+    "main.js.map": "/intro_to_ds_2020_project/static/js/main.035e554b.chunk.js.map",
     "runtime-main.js": "/intro_to_ds_2020_project/static/js/runtime-main.6b04a8e8.js",
     "runtime-main.js.map": "/intro_to_ds_2020_project/static/js/runtime-main.6b04a8e8.js.map",
     "static/css/2.32a52a2a.chunk.css": "/intro_to_ds_2020_project/static/css/2.32a52a2a.chunk.css",
     "static/js/2.5515c3f8.chunk.js": "/intro_to_ds_2020_project/static/js/2.5515c3f8.chunk.js",
     "static/js/2.5515c3f8.chunk.js.map": "/intro_to_ds_2020_project/static/js/2.5515c3f8.chunk.js.map",
     "index.html": "/intro_to_ds_2020_project/index.html",
-    "precache-manifest.2d94d5b0a52402ca54be521280b81d6b.js": "/intro_to_ds_2020_project/precache-manifest.2d94d5b0a52402ca54be521280b81d6b.js",
+    "precache-manifest.a7396ab272fc735182642cec78d50124.js": "/intro_to_ds_2020_project/precache-manifest.a7396ab272fc735182642cec78d50124.js",
     "service-worker.js": "/intro_to_ds_2020_project/service-worker.js",
     "static/css/2.32a52a2a.chunk.css.map": "/intro_to_ds_2020_project/static/css/2.32a52a2a.chunk.css.map",
     "static/css/main.1ff97ba3.chunk.css.map": "/intro_to_ds_2020_project/static/css/main.1ff97ba3.chunk.css.map",
     "static/js/2.5515c3f8.chunk.js.LICENSE.txt": "/intro_to_ds_2020_project/static/js/2.5515c3f8.chunk.js.LICENSE.txt",
-    "static/media/biden_mentioned_sent_distr.svg": "/intro_to_ds_2020_project/static/media/biden_mentioned_sent_distr.d858703c.svg",
-    "static/media/biden_sent_distr.svg": "/intro_to_ds_2020_project/static/media/biden_sent_distr.846a3a04.svg",
-    "static/media/trump_mentioned_sent_distr.svg": "/intro_to_ds_2020_project/static/media/trump_mentioned_sent_distr.5384cb3b.svg",
-    "static/media/trump_sent_distr.svg": "/intro_to_ds_2020_project/static/media/trump_sent_distr.730dcaa9.svg",
-    "static/media/wordcloud_biden_logo.svg": "/intro_to_ds_2020_project/static/media/wordcloud_biden_logo.0e88f79a.svg",
-    "static/media/wordcloud_trump_logo.svg": "/intro_to_ds_2020_project/static/media/wordcloud_trump_logo.4c9fbf57.svg"
+    "static/media/biden_mentioned_sent_distr.svg": "/intro_to_ds_2020_project/static/media/biden_mentioned_sent_distr.3d31b570.svg",
+    "static/media/biden_sent_distr.svg": "/intro_to_ds_2020_project/static/media/biden_sent_distr.e4acf5f6.svg",
+    "static/media/trump_mentioned_sent_distr.svg": "/intro_to_ds_2020_project/static/media/trump_mentioned_sent_distr.7d8456a1.svg",
+    "static/media/trump_sent_distr.svg": "/intro_to_ds_2020_project/static/media/trump_sent_distr.12ab2842.svg",
+    "static/media/wordcloud_biden_logo.svg": "/intro_to_ds_2020_project/static/media/wordcloud_biden_logo.cb9fd68d.svg",
+    "static/media/wordcloud_trump_logo.svg": "/intro_to_ds_2020_project/static/media/wordcloud_trump_logo.e06fdb12.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.6b04a8e8.js",
     "static/css/2.32a52a2a.chunk.css",
     "static/js/2.5515c3f8.chunk.js",
     "static/css/main.1ff97ba3.chunk.css",
-    "static/js/main.feff339f.chunk.js"
+    "static/js/main.035e554b.chunk.js"
   ]
 }

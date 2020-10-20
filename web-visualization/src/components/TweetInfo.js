@@ -21,9 +21,9 @@ const TweetInfo = ({ tweets, person, selectDate, selectedTweets }) => {
 
   return (
     <Paper className="segment" style={{ backgroundColor: "#eddcd2" }}>
-      <Grid container spacing={2} style={{ paddingTop: "3em" }}>
+      <Grid container spacing={3} style={{ paddingTop: "3em" }}>
         <Grid item xs={12} sm={5} style={{ marginBottom: "3em" }}>
-          <div style={{ textAlign: "center", marginBottom: "1.5em" }}>
+          <div style={{ textAlign: "center", marginBottom: "2.5em" }}>
             <ToggleButtonGroup
               value={view}
               exclusive
@@ -44,7 +44,7 @@ const TweetInfo = ({ tweets, person, selectDate, selectedTweets }) => {
         <Grid item xs={12} sm={6}>
           {!selectedTweets ? (
             <div>
-              <Typography variant="h5" style={{ marginBottom: "1.5em" }}>
+              <Typography variant="h5" style={{ marginBottom: "2em" }}>
                 Most recent tweets
               </Typography>
               <Timeline
@@ -53,7 +53,7 @@ const TweetInfo = ({ tweets, person, selectDate, selectedTweets }) => {
                   screenName: person.username,
                 }}
                 options={{
-                  height: "35em",
+                  height: "40em",
                 }}
               />
             </div>

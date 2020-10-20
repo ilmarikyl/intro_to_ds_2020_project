@@ -72,7 +72,7 @@ const DaySummary = ({ tweets, chooseColor, selectDate }) => {
         <ArrowBackIcon />
       </IconButton>
       <Typography variant="h6" style={{ fontWeight: "400" }}>
-        {information.overall.toUpperCase()}
+        {tweets[0].date} was {information.overall}
       </Typography>
       <Typography variant="subtitle1" style={{ fontWeight: "300" }}>
         {information.pos} positive, {information.neut} neutral,{" "}

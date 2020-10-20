@@ -52,9 +52,6 @@ const TweetContainer = styled(({ sentiment, ...other }) => (
 const Tweets = ({ tweets, selectDate }) => {
   return (
     <>
-      <Typography variant="h5" gutterBottom>
-        {tweets[0].date}
-      </Typography>
       <DaySummary
         tweets={tweets}
         chooseColor={chooseColor}

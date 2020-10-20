@@ -17,11 +17,6 @@ const PersonInfo = ({ person, togglePerson }) => {
             src={person.profile_image_url.replace("_normal", "")}
             style={{ height: "6em", width: "6em", marginBottom: "1em" }}
           />
-          <Typography variant="h5">{person.name}</Typography>
-          <Typography variant="body2" gutterBottom>
-            @{person.username}
-          </Typography>
-          <Typography variant="body1">{person.description}</Typography>
         </Grid>
         <Grid item xs={4} style={{ textAlign: "right" }}>
           <Button
@@ -33,6 +28,13 @@ const PersonInfo = ({ person, togglePerson }) => {
           >
             Change person
           </Button>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h5">{person.name}</Typography>
+          <Typography variant="body2" gutterBottom>
+            @{person.username}
+          </Typography>
+          <Typography variant="body1">{person.description}</Typography>
         </Grid>
       </Grid>
     </Paper>

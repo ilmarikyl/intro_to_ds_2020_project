@@ -55,11 +55,11 @@ def main():
 
 	# Trump wordclouds
 	generate_normal_wordcloud(trump_freqs, 'wordcloud_trump_normal.png')
-	generate_wordcloud_with_mask(trump_freqs, 'masks/rep_logo.png', 'wordcloud_trump_logo.png', 'png')
+	generate_wordcloud_with_mask(trump_freqs, 'masks/rep_logo.png', 'wordcloud_trump_logo.svg', 'svg')
 
 	# Biden wordclouds
 	generate_normal_wordcloud(biden_freqs, 'wordcloud_biden_normal.png')
-	generate_wordcloud_with_mask(biden_freqs, 'masks/dem_logo.png', 'wordcloud_biden_logo.png', 'png')
+	generate_wordcloud_with_mask(biden_freqs, 'masks/dem_logo.png', 'wordcloud_biden_logo.svg', 'svg')
 
 
 if __name__ == '__main__':

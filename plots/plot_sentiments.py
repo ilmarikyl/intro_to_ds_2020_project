@@ -12,12 +12,6 @@ plt.figure(figsize=[10,7])
 df_trump = pd.read_csv('../model/tweet_predictions/trump_2020_tweets_predictions.csv', sep='\t')
 df_biden = pd.read_csv('../model/tweet_predictions/biden_2020_tweets_predictions.csv', sep='\t')
 
-# Drop rows where 'opponent_mentioned' == False
-# df_trump_opp_mentioned = df_trump.drop(df_trump[df_trump.opponent_mentioned == False].index)
-# df_biden_opp_mentioned = df_biden.drop(df_biden[df_biden.opponent_mentioned == False].index)
-
-# Code below uses Seaborn to plot
-
 # Trump
 class_names = ['negative', 'neutral', 'positive']
 ax = sns.countplot(df_trump.predicted_sent, order=['positive', 'negative', 'neutral'], palette=['#7BB662', '#E03C32', '#F5D22C'], saturation=1)

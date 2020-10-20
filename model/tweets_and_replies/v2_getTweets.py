@@ -3,17 +3,11 @@ import pandas as pd
 
 # Variables that contains the credentials to access Twitter API
 
-# TIILA
-# ACCESS_TOKEN = '41787763-2F9OcnzGhNjYGc7jQz35B2nw6tmhMJRTBMSG5H6hY'
-# ACCESS_SECRET = 'uWkU6JgIx7OFAtlj9NgIzFPiUU4gzl8mZE1qSevPz6Cyx'
-# CONSUMER_KEY = 'FQK43tEhOaQKAEGbBnrWGRMHz'
-# CONSUMER_SECRET = 'DW21NFTBFfGfSt4hjHaJ0r9lNYG9TimI4sPdxzc18F2qtUwx4g'
 
-#OMA
-ACCESS_TOKEN = '1066379221600296960-4HS0jke0RX11mGXlOnpO896C04Wxbd'
-ACCESS_SECRET = 'OPMyyJ9AO8ubdbplMpGiSeqzrkY69MqrKWZbSM04OBMK4'
-CONSUMER_KEY = 'gTBAriQdYykUhTWJ92Ez6V60b'
-CONSUMER_SECRET = 's7qm1CFH3sIWGQ7wZbMeIZD8Kk4N1mA0zdAzWbGd0vebxQhbvE'
+ACCESS_TOKEN = ''
+ACCESS_SECRET = ''
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
 
 # Setup access to API
 def connect_to_twitter_OAuth():
@@ -28,10 +22,10 @@ api = connect_to_twitter_OAuth()
 # Define user
 user_name = 'JoeBiden'
 
-dates, ids, users, texts, opponent_was_mentioned= [], [], [], [], []
+dates, ids, users, texts, opponent_was_mentioned = [], [], [], [], []
 
-trump_nicknames = ["realdonaldtrump", "@realdonaldtrump", "donald", "trump", "president tweety"]
-biden_nicknames = ["joebiden", "@joebiden", "joe", "biden", "sleepy joe", "sleepyjoe", "slow joe", "joe hiden", "o'biden"]
+trump_nicknames = ["realdonaldtrump", "@realdonaldtrump", "trump", "donald trump", "president tweety"]
+biden_nicknames = ["joebiden", "@joebiden", "biden", "sleepy joe", "sleepyjoe", "slow joe", "joe hiden", "o'biden"]
 
 i = 0
 # screen_name=usuario,count=None,since_id=None,max_id=None,trim_user=True,exclude_replies=True,contributor_details=False,include_entities=False).items(200)
@@ -39,7 +33,7 @@ i = 0
 
 max_id_in_town = 1304192424462278200
 
-for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, tweet_mode='extended').items():
+for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, tweet_mode='extended').items(500):
 
 	i +=1
 
@@ -73,7 +67,7 @@ for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, twe
 
 		tweet_dict = {"date": dates, "id": ids, "username": users, "text": texts, "opponent_mentioned": opponent_was_mentioned}
 		df = pd.DataFrame(tweet_dict)
-		df.to_csv('v2_biden_recent_tweets.csv', index=False, sep='\t')
+		df.to_csv('new_v2_biden_recent_tweets.csv', index=False, sep='\t')
 
 	elif i % 50 == 0:
 		print(f'{i} tweets checked')
@@ -83,7 +77,7 @@ for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, twe
 tweet_dict = {"date": dates, "id": ids, "username": users, "text": texts, "opponent_mentioned": opponent_was_mentioned}
 
 df = pd.DataFrame(tweet_dict)
-df.to_csv('v2_biden_recent_tweets.csv', index=False, sep='\t')
+df.to_csv('new_v2_biden_recent_tweets.csv', index=False, sep='\t')
 
 print(f'\nChecked {i} tweets in total')
 print(f'Wrote {len(texts)} tweets in csv')

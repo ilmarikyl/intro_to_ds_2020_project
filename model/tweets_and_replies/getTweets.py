@@ -24,14 +24,10 @@ user_name = 'JoeBiden'
 
 dates, ids, users, texts, opponent_was_mentioned = [], [], [], [], []
 
-trump_nicknames = ["realdonaldtrump", "@realdonaldtrump", "trump", "donald trump", "president tweety"]
-biden_nicknames = ["joebiden", "@joebiden", "biden", "sleepy joe", "sleepyjoe", "slow joe", "joe hiden", "o'biden"]
+trump_nicknames = ["realdonaldtrump", "trump", "donald trump", "president tweety"]
+biden_nicknames = ["joebiden", "biden", "joe biden", "sleepy joe", "sleepyjoe", "slow joe", "joe hiden", "o'biden"]
 
 i = 0
-# screen_name=usuario,count=None,since_id=None,max_id=None,trim_user=True,exclude_replies=True,contributor_details=False,include_entities=False).items(200)
-# for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, tweet_mode='extended', count=None,since_id=None,max_id=None,exclude_replies=True,contributor_details=False,include_entities=False).items():
-
-max_id_in_town = 1304192424462278200
 
 for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, tweet_mode='extended').items(500):
 
@@ -73,9 +69,7 @@ for tweet in tweepy.Cursor(api.user_timeline, id=user_name, timeout=9999999, twe
 		print(f'{i} tweets checked')
 
 	
-
 tweet_dict = {"date": dates, "id": ids, "username": users, "text": texts, "opponent_mentioned": opponent_was_mentioned}
-
 df = pd.DataFrame(tweet_dict)
 df.to_csv('new_v2_biden_recent_tweets.csv', index=False, sep='\t')
 

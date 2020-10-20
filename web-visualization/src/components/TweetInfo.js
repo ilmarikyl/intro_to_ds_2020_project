@@ -20,9 +20,9 @@ const TweetInfo = ({ tweets, person, selectDate, selectedTweets }) => {
   }
 
   return (
-    <Paper style={{ backgroundColor: "#eddcd2", padding: "3em" }}>
+    <Paper className="segment" style={{ backgroundColor: "#eddcd2" }}>
       <Grid container spacing={2} style={{ paddingTop: "3em" }}>
-        <Grid item xs={12} md={5} style={{ marginBottom: "3em" }}>
+        <Grid item xs={12} sm={5} style={{ marginBottom: "3em" }}>
           <div style={{ textAlign: "center", marginBottom: "1.5em" }}>
             <ToggleButtonGroup
               value={view}
@@ -40,8 +40,8 @@ const TweetInfo = ({ tweets, person, selectDate, selectedTweets }) => {
             <EventTimeline selectDate={selectDate} />
           )}
         </Grid>
-        <Grid item md={1}></Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item sm={1}></Grid>
+        <Grid item xs={12} sm={6}>
           {!selectedTweets ? (
             <div>
               <Typography variant="h5" style={{ marginBottom: "1.5em" }}>

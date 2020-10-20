@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import PersonInfo from "./PersonInfo";
 import TweetInfo from "./TweetInfo";
 import Footer from "./Footer";
+import Graphs from "./Graphs";
 
 const Content = ({
   person,
@@ -23,6 +24,9 @@ const Content = ({
           selectDate={selectDate}
           selectedTweets={selectedTweets}
         />
+      </Grid>
+      <Grid item xs={12}>
+        <Graphs />
       </Grid>
       <Grid item xs={12}>
         <Footer />

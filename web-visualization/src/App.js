@@ -7,6 +7,19 @@ import Content from "./components/Content";
 import { getUserInfo } from "./requests";
 import trumpData from "./data/trump_tweets.json";
 import bidenData from "./data/biden_tweets.json";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 655,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
+});
 
 const App = () => {
   const [trumpInfo, setTrumpInfo] = useState(null);
@@ -97,7 +110,7 @@ const App = () => {
   };
 
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
         <Navigation />
@@ -115,7 +128,7 @@ const App = () => {
           />
         )}
       </Container>
-    </React.Fragment>
+    </ThemeProvider>
   );
 };
 

@@ -4,10 +4,10 @@ import { Typography, Paper, Avatar, Grid, Button } from "@material-ui/core";
 const PersonInfo = ({ person, togglePerson }) => {
   return !person ? null : (
     <Paper
+      className="segment"
       style={{
         backgroundColor:
           person.username === "realDonaldTrump" ? "#e63946" : "#2d75c5",
-        padding: "3em",
       }}
     >
       <Grid container>
